@@ -1,0 +1,14 @@
+<html>
+<body>
+
+<span style="color:green"><%= flash[:notice] %></span>	
+<span style="color:red"><%= flash[:error] %></span>	
+
+<h1>Test Page</h1>
+We are lazy devs who didn't code a real index... yet :) But keep in touch! <br/>
+
+
+<%= link_to "Login using Twitter", :controller => "user_sessions", :action => "new" %>
+
+</body>
+</html>

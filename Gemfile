@@ -2,7 +2,14 @@ source :gemcutter
 
 gem "rails", "=2.3.9"
 gem "mysql"
+gem "omniauth", "~>0.1.4"
+gem  "authlogic", "~>2.1.6"
 
+gem 'paperclip', "=2.3.3"
+gem 'will_paginate', '~> 2.3.11'
+gem 'sunspot', '=1.0.3'
+gem 'sunspot_rails', "=1.0.3"
+gem "resque"
 
 group :development do
   gem "flog", "=2.4.0"
