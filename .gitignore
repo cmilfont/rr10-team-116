@@ -6,3 +6,4 @@ tmp/**/*
 db/*.sqlite3
 .project
 .bundle
+config/database.yml
