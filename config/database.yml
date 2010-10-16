@@ -5,7 +5,7 @@ test: &TEST
   database: cordel_test
   pool: 5
   username: root
-  password: M@cbookpro
+  password: root
 
 production:
   <<: *TEST
