@@ -5,9 +5,10 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
+
   <p>
     <%= f.label :author %><br />
-    <%= collection_select(:author, :author_id, Author.all, :id, :name) %>
+    <%= collection_select(:book, :author, Author.all, :id, :name) %>
   </p>
   <p>
     <%= f.label :year %><br />
