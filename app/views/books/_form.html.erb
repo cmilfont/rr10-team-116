@@ -1,14 +1,12 @@
 <% form_for @book, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
-
   <p>
-    <%= f.label :author %><br />
-    <%= collection_select(:book, :author, Author.all, :id, :name) %>
+    <%= f.label :author_id %><br />
+    <%= collection_select(:book, :author_id, Author.all, :id, :name) %>
   </p>
   <p>
     <%= f.label :year %><br />

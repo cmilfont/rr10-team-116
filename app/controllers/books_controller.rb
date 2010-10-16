@@ -6,7 +6,7 @@ class BooksController < ApplicationController
       format.html
     end
   end
-  
+
   def create
     @book = Book.new(params[:book])
     respond_to do |format|
@@ -16,7 +16,7 @@ class BooksController < ApplicationController
       else
         format.html { render :action => "new" }
       end
-    end 
+    end
   end
 
 end
