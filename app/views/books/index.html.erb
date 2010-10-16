@@ -1,0 +1,11 @@
+<ul id="books">
+	<div class="shelf">
+	<% @book.each_with_index do |book, i| %>
+		<% if i % 6 == 0 && i != 0 %>
+			</div>
+			<div class="shelf">
+		<% end %>
+		<li><img src="images/twilight_book_cover.jpg" alt="Twilight" /><%=book.title%></li>
+	<% end %>
+	</div>
+</ul>
