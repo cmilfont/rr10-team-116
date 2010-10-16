@@ -11,6 +11,25 @@
 
 ActiveRecord::Schema.define(:version => 20101016200809) do
 
+  create_table "authors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "books", :force => true do |t|
+    t.string   "title"
+    t.integer  "author_id"
+    t.string   "year"
+    t.string   "edition"
+    t.string   "publisher"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "oauth_id",                          :null => false
     t.string   "full_name",                         :null => false

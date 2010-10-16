@@ -2,6 +2,13 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
-#   
+#
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+require 'factory_girl'
+Dir.glob(File.join(File.dirname(__FILE__), '../spec/factories/*.rb')).each {|f| require f }
+
+@author = Factory(:author, :name => "Kent Beck")
+puts "Author #{@author.name} saved!"
+
