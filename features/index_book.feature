@@ -5,13 +5,13 @@ Feature: Indexing Book
 
   @wip
   Scenario: Add book
-    Given i am on "Add book"
-      And i attach the file "features/support/book/Bertrand_Russel-Theory-of-Knowledge.pdf" to "File"
-      And i fill in "Title" with "Theory of Knowledge"
-      And i select "Bertrand Russel" from "Author"
-      And i fill in "Year" with "1926"
-      And i fill in "Publisher" with "The Encyclopaedia Britannica"
-      And i fill in "Edition" with "First Edition"
-    When i press "Save"
-    Then i should see "Book saved successfully!"
+    Given I am on "Add book"
+      And I attach the file "features/support/book/Bertrand_Russel-Theory-of-Knowledge.pdf" to "File"
+      And I fill in "Title" with "Theory of Knowledge"
+      And I select "Bertrand Russel" from "Author"
+      And I fill in "Year" with "1926"
+      And I fill in "Publisher" with "The Encyclopaedia Britannica"
+      And I fill in "Edition" with "First Edition"
+    When I press "Save"
+    Then I should see "Book saved successfully!"
 
