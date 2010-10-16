@@ -1,0 +1,184 @@
+h2. ABOUT:
+
+Inploy was born as an option to setup and deploy Rails applications in an easier and smarter way.
+
+It executes automatically common tasks like migrate the database, install gems, package the assets, clean the cache, notify Hoptoad, restart the server, etc. This means you will not have a big deploy script calld 'recipe' like with other tools, only a simple deploy script with a few lines.
+
+It uses Git to version the deploys and to pull or push only the modifications in each one. This means you will not have a lot of folders in the server (only one) with duplicated code and that ech deploy will be very fast.
+
+It is very flexible, meaning you can create templates specifing how specific tasks must behave. As today, there are templates for Locaweb, for Rails 3 using git pull and Rails 3 using git push.
+
+It works by default with Passenger, but you can specify another servers like Mongrel, Thin and Unicorn.
+
+You can execute Inploy from a remote machine or from the server machine, meaning anynone can go to the deployment path and with only one command update the code and execute all the tasks.
+
+As Inploy is very flexible, now you can also use it to execute an installation shell script in a server from an URL.
+
+h2. INSTALLATION:
+
+As a plugin:
+
+<pre><code>script/plugin install git://github.com/dcrec1/inploy.git</code></pre>
+
+As a gem:
+
+<pre><code>sudo gem install inploy</code></pre>
+
+Please remember that when used as a gem, Inploy should be available in the deploy servers.
+
+h2. USAGE
+
+When using Inploy with Rake, there are five tasks:
+
+* inploy:remote:install from=url
+
+- connects to a list of servers and executes the script from url
+
+* inploy:remote:setup
+
+- connects to a list of servers
+- clones a git repository
+- executes rake inploy:local:setup
+
+* inploy:remote:update or inploy:up
+
+- connects to a list of servers
+- executes inploy:local:update
+
+* inploy:remote:install
+
+- connects to a list of servers
+- reads the content of url specified by from=url without downloading the file and executes it
+
+* inploy:local:setup
+
+- creates directories db and tmp/pids
+- copies config/*.sample and config/*.example files to config/*
+- creates the database
+- executes init.sh file case it exists
+- inits and updates the git submodules
+- installs gems
+- migrates the database
+- updates the crontab from Whenever if being used
+- cleans the cache, default tmp/cache
+- cleans cached assets in public/assets if Jammit is installed
+- parses less files if more:parse tasks exists
+- parses compass files if config/initializers/compass.rb exists
+- package the assets if asset:packager:build_all task exists
+- notifies Hoptoad about the deploy, specifing the revision, repository and environment
+- notifies NewRelic RPM about the deploy
+- restarts the server
+
+* inploy:local:update
+
+- pulls the repository
+- inits and updates the git submodules
+- copies config/*.sample and config/*.example files to config/*
+- installs gems
+- migrates the database
+- updates the crontab from Whenever if being used
+- cleans the cache, default tmp/cache
+- cleans cached assets in public/assets if Jammit is installed
+- parses less files if more:parse tasks exists
+- parses compass files if config/initializers/compass.rb exists
+- package the assets if asset:packager:build_all task exists
+- notifies Hoptoad about the deploy, specifing the revision, repository and environment
+- notifies NewRelic RPM about the deploy
+- restarts the server
+
+If you don't want to execute Rake, there are a few shortcuts:
+
+inploy => inploy update => rake inploy:remote:update
+inploy setup => rake inploy:remote:setup
+inploy install from=url => rake inploy:remote:install from=url
+
+When using inploy as a command, it looks first for config/deploy.rb and then for deploy.rb .
+
+h2. CONFIGURATION
+
+Create a config/deploy.rb file and configure it something like this:
+
+<pre><code>application = "signal"
+repository = 'git://github.com/dcrec1/signal.git'
+hosts = ['hooters', 'geni']
+
+# OPTIONALS
+
+before_restarting_server do
+  rake "important:task"
+  run "important_command"
+end
+
+path = '/opt'                                # default /var/local/apps
+user = 'dcrec1'                              # default deploy
+ssh_opts = '-A'                              # default empty
+branch = 'production'                        # default master
+sudo = true                                  # default false
+cache_dirs = ['public/cache', 'tmp/cache']   # default ['public/cache']
+skip_steps = ['install_gems', 'clear_cache'] # default []
+app_folder = 'project_folder'                # default empty 
+</code></pre>
+
+h2. SKIP STEPS
+
+You can skip some steps when running a Rake task, just add "skip_steps" into your rake command line or add "skip_steps" to your deploy.rb to always skip those steps.
+
+Currently the steps available to skip are:
+
+- install_gems: skip rake gems:install
+- migrate_database: skip rake db:migrate
+- clear_cache: skip removing cache directories
+- update_crontab: skip updating the crontab with Whenever
+
+* Usage (params are comma separated):
+
+<pre><code>rake inploy:remote:update skip_steps=install_gems,migrate_database</code></pre>
+
+h2. HOOKS
+
+Currently the only hook is called before restarting the server. If you need another hook, please fork the project and implemented it or created an issue, it's very easy.
+
+h2. CONTRIBUTORS:
+
+Inploy is brought to you by:
+
+ * Diego Carrion
+ * Douglas Campos
+ * Kristopher Murata
+ * Vitor Pellegrino
+ * Josh Owens
+ * Felipe
+ * trooster
+ * Josef Pospíšil
+ * BrunoGrasselli
+ * Andy Shen
+ * alekenji
+ * Erik Dahlstrand
+ * Carlos Brando
+ * Thomas Ritz
+
+
+h2. LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2010
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
