@@ -8,7 +8,6 @@ Feature: Indexing Book
       | name            |
       | Bertrand Russel |
 
-  @wip
   Scenario: Add book
     Given I am on "Add book"
       And I attach the file "features/support/book/Bertrand_Russel-Theory-of-Knowledge.pdf" to "File"
