@@ -1,0 +1,8 @@
+
+<h1>Editar Usuário</h1>
+<% semantic_form_for(:user, @user, :url => {:action => :update, :id => @user} ) do |f| %>	
+<%= f.input :full_name, :label => 'Name' %>
+<%= f.input :usarname, :label => 'Username' %>
+
+<%= f.buttons %>
+<% end %>
