@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016200809) do
+ActiveRecord::Schema.define(:version => 20101016215945) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20101016200809) do
   create_table "users", :force => true do |t|
     t.string   "oauth_id",                          :null => false
     t.string   "full_name",                         :null => false
-    t.string   "usarname",                          :null => false
+    t.string   "username",                          :null => false
     t.string   "twitter_username"
     t.string   "persistence_token"
     t.integer  "login_count",        :default => 0, :null => false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20101016200809) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.string   "provider"
+    t.string   "email"
+    t.string   "website"
   end
 
 end

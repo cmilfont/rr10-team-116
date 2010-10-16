@@ -1,8 +1,12 @@
 
 <h1>Editar Usuário</h1>
 <% semantic_form_for(:user, @user, :url => {:action => :update, :id => @user} ) do |f| %>	
-<%= f.input :full_name, :label => 'Name' %>
-<%= f.input :usarname, :label => 'Username' %>
-
-<%= f.buttons %>
+	<% f.inputs do %>
+	    <%= f.error_messages %>
+		<%= f.input :full_name, :label => 'Name' %>
+		<%= f.input :username, :label => 'Username' %>
+		<%= f.input :website, :label => 'Site', :required => false %>
+		<%= f.input :email, :label => 'E-mail', :required => false %>
+	<% end %>
+	<%= f.buttons %>
 <% end %>
