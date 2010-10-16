@@ -1,0 +1,44 @@
+html {
+}
+body {
+  margin: 0;
+}
+
+#top {
+  position: relative;
+  padding: 10px;
+  height: 56px;
+  z-index: 1;
+  background: url('images/topBg.png') repeat-x;
+}
+
+#content {
+  width: 100%;
+  background: #FEB;
+}
+
+ul#books {
+  float: right;
+  margin-top: -22px;
+  padding-top: 40px;
+  width: 818px;
+  height: 493px;
+  background: #FEB url('images/wood.png') no-repeat right;
+}
+ul#books #shelf {
+  padding-bottom: 42px;
+  padding-left: 50px;
+  width: 768px;
+  background: url('images/shelf.png') no-repeat bottom;
+}
+ul#books #shelf li {
+  display: inline;
+  list-style: none;
+}
+ul#books #shelf li img {
+  margin-right: 30px;
+  height: 115px;
+  cursor: pointer;
+  border-right: 7px solid #FFF;
+  -moz-box-shadow: 5px 0 20px #555;
+}
