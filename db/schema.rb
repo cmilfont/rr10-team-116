@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20101016060745) do
     t.string   "full_name",                         :null => false
     t.string   "usarname",                          :null => false
     t.string   "twitter_username"
-    t.string   "persistence_token",                 :null => false
+    t.string   "persistence_token"
     t.integer  "login_count",        :default => 0, :null => false
     t.integer  "failed_login_count", :default => 0, :null => false
     t.datetime "last_request_at"
