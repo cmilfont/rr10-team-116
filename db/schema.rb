@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016060745) do
+ActiveRecord::Schema.define(:version => 20101016200809) do
 
   create_table "users", :force => true do |t|
     t.string   "oauth_id",                          :null => false
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20101016060745) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+    t.string   "provider"
   end
 
 end
