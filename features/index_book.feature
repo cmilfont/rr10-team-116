@@ -3,6 +3,7 @@ Feature: Indexing Book
   I want index a book in PDF file format
   In order to organize the search from my personal library
 
+  @wip
   Scenario: Add book
     Given i am on "Add book"
       And i attach the file "features/support/book/Bertrand_Russel-Theory-of-Knowledge.pdf" to "File"
