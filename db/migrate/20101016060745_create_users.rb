@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       
       t.string :twitter_username
       
-      t.string    :persistence_token,   :null => false
+      t.string    :persistence_token
       
       t.integer   :login_count,         :null => false, :default => 0 # optional, see Authlogic::Session::MagicColumns
       t.integer   :failed_login_count,  :null => false, :default => 0 # optional, see Authlogic::Session::MagicColumns
