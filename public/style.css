@@ -1,7 +1,22 @@
 html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #EFB168;
 }
 body {
   margin: 0;
+  /* margin: 15px auto; */
+  /* width: 1000px; */
+  /* border: 1px solid #530; */
+  /* box-shadow: 0 0 20px #000; */
+  /* -moz-box-shadow: 0 0 20px #000; */
+  /* -webkit-box-shadow: 0 0 20px #000; */
+}
+
+.container {
+  margin: 0 auto;
+  width: 800px;
 }
 
 #top {
@@ -11,34 +26,119 @@ body {
   z-index: 1;
   background: url('images/topBg.png') repeat-x;
 }
+#top #login {
+  float: right;
+  display: inline;
+  margin-top: 7px;
+  padding: 2px 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  background: url('images/topBg.png') repeat-x;
+  border: 1px solid black;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  text-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #5E3513;
+  -moz-box-shadow: 1px 1px 1px #5E3513;
+  -webkit-box-shadow: 1px 1px 1px #5E3513;
+}
+#top #login img {
+  vertical-align: middle;
+}
 
 #content {
   width: 100%;
+  margin-top: -22px;
   background: #FEB;
+}
+
+#left {
+  padding: 20px;
+  width: 400px;
 }
 
 ul#books {
   float: right;
-  margin-top: -22px;
+  margin: 0;
   padding-top: 40px;
   width: 818px;
   height: 493px;
   background: #FEB url('images/wood.png') no-repeat right;
 }
-ul#books #shelf {
+ul#books .shelf {
   padding-bottom: 42px;
   padding-left: 50px;
   width: 768px;
   background: url('images/shelf.png') no-repeat bottom;
 }
-ul#books #shelf li {
+ul#books .shelf li {
   display: inline;
   list-style: none;
 }
-ul#books #shelf li img {
+ul#books .shelf li img {
   margin-right: 30px;
   height: 115px;
   cursor: pointer;
   border-right: 7px solid #FFF;
+  box-shadow: 5px 0 20px #555;
   -moz-box-shadow: 5px 0 20px #555;
+  -webkit-box-shadow: 5px 0 20px #555;
+}
+
+form {
+  position: absolute;
+  top: 200px;
+  left: 300px;
+  padding: 10px 20px;
+  background: #F5F5F6;
+  background: -moz-linear-gradient(top, #F5F5F6, #E8E9EA);
+  background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F6), to(#E8E9EA));
+  border: 1px solid #FFF;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  box-shadow: 0 0 30px #000;
+  -moz-box-shadow: 0 0 30px #000;
+  -webkit-box-shadow: 0 0 30px #000;
+}
+form h1 {
+  margin: -11px -21px 10px -21px;
+  padding: 0 20px;
+  font-size: 15px;
+  line-height: 30px;
+  color: #FFF;
+  cursor: pointer;
+  background: url('images/topBg.png') repeat-x;
+  border: 1px solid #000;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+}
+form select {
+  padding: 5px 10px;
+  height: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  background: #FFF;
+  border: 1px solid #C6C6C6;
+  -moz-border-radius: 6px;
+}
+form input[type='text'] {
+  padding: 5px 10px;
+  height: 18px;
+  font-weight: bold;
+  line-height: 18px;
+  background: #FFF;
+  border: 1px solid #C6C6C6;
+  -moz-border-radius: 6px;
+}
+
+#bottom {
+  padding: 20px;
+  font-size: 12px;
+  text-align: center;
+  color: #7C4619;
 }
