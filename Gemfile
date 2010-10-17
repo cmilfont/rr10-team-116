@@ -17,7 +17,7 @@ gem "nifty-generators"
 gem "acts-as-taggable-on", "2.0.6"
 gem "ajaxful_rating"
 gem 'uuid', "~> 2.3.1"
-gem "rmagick", "2.12.2"
+gem "rmagick", "2.12.2", :require => 'RMagick'
 
 
 

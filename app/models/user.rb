@@ -14,13 +14,18 @@ class User < ActiveRecord::Base
                         :username => user_info["nickname"],
                         :twitter_username => user_info["nickname"],
                         :profile_image_url => user_info["image"],
-                       :provider => "twitter")
+                        :provider => "twitter")
   end
 
   def User.find_using_twitter_data(oauth_data)
-
+    user_info = oauth_data["user_info"]
     oauth_id = oauth_data["uid"]
     user = User.find(:first, :conditions => {:oauth_id => oauth_id, :provider => "twitter"})
+    if user
+      user.profile_image_url = user_info["image"]
+      user.save
+    end
+    user
   end
 end
 
