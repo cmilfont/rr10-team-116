@@ -10,7 +10,8 @@ class Book < ActiveRecord::Base
   has_many :pages, :dependent => :destroy
 
   has_attached_file :file
-  validates_attachment_size :file, :less_than => 5.megabytes
+  validates_presence_of :file
+  validates_attachment_size :file, :less_than => 7.megabytes
   validates_attachment_content_type :file, :content_type => ['application/pdf']
 
   searchable do
