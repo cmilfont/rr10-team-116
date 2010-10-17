@@ -127,8 +127,8 @@ ul#menu li a.active {
   background: #FFF;
 }
 #content h1 {
-  margin: 0;
-  margin-bottom: 10px;
+  display: inline;
+  margin: 10px 0;
   padding: 0;
   text-transform: uppercase;
   font-size: 22px;
@@ -148,6 +148,10 @@ ul#menu li a.active {
   width: 280px;
   font-size: 12px;
 }
+#sidebar img {
+  max-width: 200px;
+  _width: 200px;
+}
 
 #bottom {
   padding: 8px;
@@ -159,3 +163,15 @@ ul#menu li a.active {
 }
 
 .white { color: #FFF; }
+a.button {
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #FFF;
+  background: #2F2428;
+}
+a.button:hover {
+  color: #F00;
+}

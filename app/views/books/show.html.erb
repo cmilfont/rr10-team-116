@@ -1,49 +1,44 @@
+<div id="sidebar">
+  <p><%= image_tag(@book.small_image_path, :alt => @book.title)%></p>
+</div>
+
 <h1><%=h @book.title %></h1>
+<%= link_to 'Edit', edit_book_path(@book), :class => 'button' %>
+<%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %>
+<p><%= ratings_for @book %></p>
 <p>
-  <b>Title:</b>
+  <b>TITLE:</b>
   <%=h @book.title %>
 </p>
 
 <p>
-  <b>Author:</b>
+  <b>AUTHOR:</b>
   <%=h @book.author %>
 </p>
 
 <p>
-  <b>Year:</b>
+  <b>YEAR:</b>
   <%=h @book.year %>
 </p>
 
 <p>
-  <b>Edition:</b>
+  <b>EDITION:</b>
   <%=h @book.year %>
 </p>
 
 <p>
-  <b>Publisher:</b>
+  <b>PUBLISHER:</b>
   <%=h @book.publisher %>
 </p>
 
 <p>
-  <b>Pages:</b>
+  <b>PAGES:</b>
   <%=h @book.pages.size %>
 </p>
 
 <p>
-  <b>File:</b>
+  <b>FILE:</b>
   <a href="<%=h @book.file.url %>">Get book</a>
 </p>
 
-<div style="position:absolute; left:600px; top:0px">
-	<%= image_tag(@book.small_image_path, :alt => @book.title)%>
-</div>
-<div style="position:absolute; left:850px; top:150px">
-	Ratings: <%= ratings_for @book %>
-</div>
-
-
-
-
-<%= link_to 'Edit', edit_book_path(@book) %>
-<%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %>
 <%#= render 'books' %>
