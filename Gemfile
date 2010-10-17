@@ -16,6 +16,10 @@ gem 'formtastic', '~> 1.1.0'
 gem "nifty-generators"
 gem "acts-as-taggable-on", "2.0.6"
 gem "ajaxful_rating"
+gem 'uuid', "~> 2.3.1"
+gem "rmagick"
+
+
 
 group :development do
   gem "flog", "2.4.0"

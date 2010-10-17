@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017023049) do
+ActiveRecord::Schema.define(:version => 20101017041718) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20101017023049) do
     t.integer  "file_file_size"
     t.decimal  "rating_average",    :precision => 6, :scale => 2, :default => 0.0
     t.string   "author"
+    t.string   "cover_img_uuid"
   end
 
   create_table "pages", :force => true do |t|

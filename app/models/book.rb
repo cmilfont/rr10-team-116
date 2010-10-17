@@ -30,6 +30,31 @@ class Book < ActiveRecord::Base
     book.save
     Sunspot.index book.pages
   end
+  
+  def large_image_path
+    Book.cover_dir + "/cover_#{cover_img_uuid}_large.png"
+  end
+  
+  def small_image_path
+    Book.cover_dir + "/cover_#{cover_img_uuid}_small.png"
+  end
+  
+  def thumb_image_path
+    Book.cover_dir + "/cover_#{cover_img_uuid}_thumb.png"
+  end
+  
+  
+  def file_full_path
+    RAILS_ROOT + "/public" + file.url    
+  end
+    
+  def self.cover_dir
+     return "/images/covers"  
+  end
+  
+  def self.full_cover_dir
+    return RAILS_ROOT + "/public"+ cover_dir
+  end
 
   class << self
 
@@ -41,11 +66,12 @@ class Book < ActiveRecord::Base
       @queue = new_queue
     end
 
-    def deliver( id )
-      Resque.enqueue(Book, id )
+    def deliver(id)
+      Resque.enqueue(Book, id)
+      Resque.enqueue(GenerateBookCover, id)      
     end
-
-    def perform( id )
+                
+    def perform(id)
       new().process(id)
     end
 
