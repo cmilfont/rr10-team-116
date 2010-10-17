@@ -1,5 +1,11 @@
 <% semantic_form_for(@user) do |f| %>	
   <h1>Edit User</h1>
+<div id="sidebar">
+  <h2>Your profile is very important</h2>
+  <p>Although we take your profile data from twitter or facebook, it is important that you keep your information current.</p>
+</div>
+
+  <h1>Edit user</h1>
 	<% f.inputs do %>
     <%= f.error_messages %>
 		<p><%= f.input :full_name, :label => 'Name' %></p>
@@ -7,6 +13,6 @@
 		<p><%= f.input :website, :label => 'Site', :required => false %></p>
 		<p><%= f.input :email, :label => 'E-mail', :required => false %></p>
 	<% end %>
-	<%= f.buttons %>
+	<p><%= f.buttons %></p>
 <% end %>
 

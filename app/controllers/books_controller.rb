@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
-  before_filter :require_user, :only => [:new, :create, :edit, :rate, :update, :mybooks]
-
+  before_filter :require_user, :only => [:new, :create, :edit, :destroy, :rate,
+                                         :update, :mybooks]
 
 
   def new
@@ -29,6 +29,7 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     @books = Book.all
+    require_owner(@book)
   end
 
   def show
@@ -58,7 +59,7 @@ class BooksController < ApplicationController
       format.xml  { render :xml => @books }
     end
   end
-  
+
   def search_books
     page = params[:page]? params[:page].to_i : 1
     per_page = params[:per_page]? params[:per_page].to_i : 5
@@ -74,7 +75,7 @@ class BooksController < ApplicationController
   def search_mybooks
     page = params[:page]? params[:page].to_i : 1
     per_page = params[:per_page]? params[:per_page].to_i : 5
-    
+
     @query = params[:query]
     user = current_user
     query = @query
@@ -84,15 +85,15 @@ class BooksController < ApplicationController
       paginate(:page => page, :per_page => per_page)
     end
     @books = resultados.results
-    
+
     render :action => "mybooks"
   end
-  
-  
+
+
   def search_books_by_user
     page = params[:page]? params[:page].to_i : 1
     per_page = params[:per_page]? params[:per_page].to_i : 5
-    
+
     @query = params[:query]
     user = User.find(params[:id])
     query = @query
@@ -102,19 +103,23 @@ class BooksController < ApplicationController
       paginate(:page => page, :per_page => per_page)
     end
     @books = resultados.results
-    
+
     render :action => "books_by_user"
   end
-  
+
   def destroy
     @book = Book.find(params[:id])
-    Sunspot.remove @book
-    @book.destroy
-    
-    respond_to do |format|
-      format.html { redirect_to(books_url) }
-      format.xml  { head :ok }
+
+    if require_owner(@book)
+      Sunspot.remove @book
+      @book.destroy
+
+      respond_to do |format|
+        format.html { redirect_to(books_url) }
+        format.xml  { head :ok }
+      end
     end
+
   end
 
   def books_by_user
@@ -123,7 +128,7 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html
       format.xml  { render :xml => @books }
-    end  
+    end
   end
 
   def mybooks
@@ -142,4 +147,16 @@ class BooksController < ApplicationController
     end
   end
 
+  private
+  def require_owner(book)
+    unless current_user.owner_of(book)
+      store_location
+      flash[:notice] = "You must be owner to access this page"
+      redirect_to :controller => "user_sessions", :action => "new"
+      return false
+    end
+    return true
+  end
+
 end
+

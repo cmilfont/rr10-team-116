@@ -19,6 +19,7 @@ gem "ajaxful_rating"
 gem 'uuid', "~> 2.3.1"
 gem "rmagick", "2.12.2", :require => 'RMagick'
 
+gem "ruby-debug"
 
 
 group :development do

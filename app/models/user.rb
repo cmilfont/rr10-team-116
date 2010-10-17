@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
                         :provider => "twitter")
   end
 
+  def owner_of(book)
+    book.user.eql? self
+  end
+
   def User.find_using_twitter_data(oauth_data)
     user_info = oauth_data["user_info"]
     oauth_id = oauth_data["uid"]

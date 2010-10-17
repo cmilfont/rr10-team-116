@@ -15,6 +15,7 @@ class UserSessionsController < ApplicationController
         flash[:error] = "Sorry, we couldn't proceed with your login. We'll fix it ASAP"
       end
       redirect_to "/"
+      #redirect_to(session[:return_to])
     else
       user = User.send("create_using_#{provider}_data", auth_data)
       @user_session = UserSession.new(user)
@@ -26,9 +27,9 @@ class UserSessionsController < ApplicationController
       end
     end
   end
-  
+
   ERRORS = {"invalid_credentials" => "Invalid Crendentials"}
-  
+
   def auth_failure
     flash[:error] = ERRORS[params[:message]]
     redirect_to "/"
@@ -37,7 +38,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = "Logout successful, goodbye!"
-    redirect_to "/"
+    redirect_back_or_default("/")
   end
 end
 
