@@ -25,6 +25,16 @@
   <%=h @book.publisher %>
 </p>
 
+<p>
+  <b>Pages:</b>
+  <%=h @book.pages.size %>
+</p>
+
+<p>
+  <b>File:</b>
+  <a href="<%=h @book.file.url %>">Get book</a>
+</p>
+
 <%= link_to 'Edit', edit_book_path(@book) %>
 <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %>
 </div>
