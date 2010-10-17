@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    Ascii85 (1.0.0)
     Saikuro (1.1.0)
     actionmailer (2.3.9)
       actionpack (= 2.3.9)
@@ -130,6 +131,8 @@ GEM
     paperclip (2.3.3)
       activerecord
       activesupport
+    pdf-reader (0.8.5)
+      Ascii85 (>= 0.9)
     progressbar (0.9.0)
     rack (1.1.0)
     rack-openid (1.1.2)
@@ -219,6 +222,7 @@ DEPENDENCIES
   nifty-generators
   omniauth (~> 0.1.4)
   paperclip (= 2.3.3)
+  pdf-reader (= 0.8.5)
   rails (= 2.3.9)
   resque
   rspec (= 1.3.0)

@@ -3,7 +3,9 @@ source :gemcutter
 gem "rails", "2.3.9"
 gem "mysql"
 gem "omniauth", "~>0.1.4"
-gem  "authlogic", "~>2.1.6"
+gem "authlogic", "~>2.1.6"
+
+gem 'pdf-reader', '0.8.5', :require => 'pdf/reader'
 
 gem 'paperclip', "2.3.3"
 gem 'will_paginate', '~> 2.3.11'
@@ -27,3 +29,4 @@ group :test do
   gem "rspec-rails", "1.3.2"
   gem "capybara", " 0.3.9"
 end
+
