@@ -18,6 +18,12 @@ class Book < ActiveRecord::Base
     text :edition
     text :publisher
     text :year
+    text :pages_content do
+      pages.map do |page|
+        page.content
+      end
+    end
+    integer :user_id
   end
 
   def process(book_id)

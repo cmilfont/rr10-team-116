@@ -57,6 +57,54 @@ class BooksController < ApplicationController
       format.xml  { render :xml => @books }
     end
   end
+  
+  def search_books
+    page = params[:page]? params[:page].to_i : 1
+    per_page = params[:per_page]? params[:per_page].to_i : 5
+    @query = params[:query]
+    query = @query
+    resultados = Sunspot.search(Book) do
+      keywords(query)
+      paginate(:page => page, :per_page => per_page)
+    end
+    @books = resultados.results
+  end
+
+  def search_mybooks
+    page = params[:page]? params[:page].to_i : 1
+    per_page = params[:per_page]? params[:per_page].to_i : 5
+    
+    @query = params[:query]
+    user = current_user
+    query = @query
+    resultados = Sunspot.search(Book) do
+      keywords(query)
+      with(:user_id, user.id)
+      paginate(:page => page, :per_page => per_page)
+    end
+    @books = resultados.results
+    
+    render :action => "mybooks"
+  end
+  
+  
+  def search_books_by_user
+    page = params[:page]? params[:page].to_i : 1
+    per_page = params[:per_page]? params[:per_page].to_i : 5
+    
+    @query = params[:query]
+    user = User.find(params[:id])
+    query = @query
+    resultados = Sunspot.search(Book) do
+      keywords(query)
+      with(:user_id, user.id)
+      paginate(:page => page, :per_page => per_page)
+    end
+    @books = resultados.results
+    
+    render :action => "books_by_user"
+  end
+  
 
   def books_by_user
     @user = User.find(params[:id])
@@ -67,8 +115,8 @@ class BooksController < ApplicationController
     end  
   end
 
-  def my_books
-    @books = Book.find(:all, :conditions => {:user => current_user})
+  def mybooks
+    @books = Book.find(:all, :conditions => {:user_id => current_user.id})
     respond_to do |format|
       format.html
       format.xml  { render :xml => @books }
