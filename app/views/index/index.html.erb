@@ -1,17 +1,22 @@
 <div id="sidebar">
   <h2>Top Rated Books</h2>
-  <ul id="books">
-    <% Book.top_rated_books.each do |book| %>
-      <li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title, :width => "50"), book %></li>
-    <% end %>
-  </ul>
 
-  <h2>Last Added Books</h2>
-  <ul id="books">
-    <% Book.recent_books.each do |book| %>
-      <li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title, :width => "50"), book %></li>
-    <% end %>
-  </ul>
-</div>
+<ul id="books">
+  <div class="shelf">Top Rated Books
+  <% Book.top_rated_books.each do |book| %>
+    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
+  <% end %>
+  </div>
+  <div class="shelf">Last Added Books
+  <% Book.recent_books.each do |book| %>
+    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
+  <% end %>
+  </div>
+</ul>
 
+
+
+<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+<% end %>
 <img src="/images/banner.jpg">

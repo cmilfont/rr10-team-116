@@ -1,4 +1,3 @@
-module IndexHelper
+module BooksHelper
   include ActsAsTaggableOn::TagsHelper
-  
 end

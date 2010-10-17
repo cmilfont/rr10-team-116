@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :books, :member => {:rate => :post}, :collection => {:search_mybooks => :get, :mybooks => :get}
+  map.resources :books, :member => {:rate => :post}, :collection => {:tag_cloud => :get, :search_mybooks => :get, :mybooks => :get}
   map.resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
