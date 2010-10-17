@@ -6,8 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     auth_data = request.env['rack.auth']
     provider = auth_data["provider"]
-    
-    
+
     user = User.send("find_using_#{provider}_data", auth_data)
     if user
       @user_session = UserSession.new(user)
@@ -35,3 +34,4 @@ class UserSessionsController < ApplicationController
     redirect_to "/"
   end
 end
+
