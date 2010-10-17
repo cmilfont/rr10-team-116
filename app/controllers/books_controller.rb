@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @books = Book.all
     respond_to do |format|
       format.html
     end
@@ -9,6 +10,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(params[:book])
+    @book.user = current_user if current_user
     respond_to do |format|
       if @book.save
         Book.deliver(@book.id)
@@ -20,15 +22,38 @@ class BooksController < ApplicationController
     end
   end
   
-  def index
-    @book = Book.all
-
+  def edit
+    @book = Book.find(params[:id])
+    @books = Book.all
+  end
+  
+  def show
+    @book = Book.find(params[:id])
+    @books = Book.all
+  end
+  
+  def update
+    @book = Book.find(params[:id])
     respond_to do |format|
-      format.html 
-      format.xml  { render :xml => @book }
+      if @book.update_attributes(params[:book])
+        Book.deliver(@book.id)
+        flash[:notice] = 'Book saved successfully!'
+        format.html { redirect_to(@book) }
+      else
+        format.html { render :action => "new" }
+      end
     end
   end
   
+  def index
+    @books = Book.all
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @book }
+    end
+  end
+
   def rate
     @book = book.find(params[:id])
     @book.rate(params[:stars], current_user)
@@ -38,6 +63,4 @@ class BooksController < ApplicationController
     #end
   end
 
-
 end
-

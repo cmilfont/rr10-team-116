@@ -1,28 +1,27 @@
-<% form_for @book, :html => { :multipart => true } do |f| %>
-  <h1>New Book</h1>
+<% semantic_form_for @book, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </p>
   <p>
     <%= f.label :author %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :author %>
   </p>
   <p>
-    <%= f.label :year %><br />
+    <%= f.label :year %>
     <%= f.text_field :year %>
   </p>
   <p>
-    <%= f.label :edition %><br />
+    <%= f.label :edition %>
     <%= f.text_field :edition %>
   </p>
   <p>
-    <%= f.label :publisher %><br />
+    <%= f.label :publisher %>
     <%= f.text_field :publisher %>
   </p>
   <p>
-    <%= f.label :file %><br />
+    <%= f.label :file %>
     <%= f.file_field :file %>
   </p>
   <p>

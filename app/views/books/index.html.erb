@@ -1,11 +1,1 @@
-<ul id="books">
-	<div class="shelf">
-	<% @book.each_with_index do |book, i| %>
-		<% if i % 6 == 0 && i != 0 %>
-			</div>
-			<div class="shelf">
-		<% end %>
-		<li><img src="<%= book.thumb_image_path %>" title="<%=book.title%>" alt="<%=book.title%>" /></li>
-	<% end %>
-	</div>
-</ul>
+<%= render 'books' %>

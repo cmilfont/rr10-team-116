@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101017041718) do
+ActiveRecord::Schema.define(:version => 20101017041737) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20101017041718) do
     t.decimal  "rating_average",    :precision => 6, :scale => 2, :default => 0.0
     t.string   "author"
     t.string   "cover_img_uuid"
+    t.integer  "user_id"
+    t.string   "index_erro"
   end
 
   create_table "pages", :force => true do |t|
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20101017041718) do
     t.string   "provider"
     t.string   "email"
     t.string   "website"
+    t.string   "profile_image_url"
   end
 
 end

@@ -5,9 +5,13 @@ Feature: Indexing Book
 
   Background:
     Given I have the following authors:
-      | name            |
-      | Bertrand Russel |
+      | name               |
+      | Bertrand Russel    |
+    Given I have the following users:
+      | full_name          |
+      | Christiano Martins |
 
+  @wip
   Scenario: Add book
     Given I am on "Add book"
       And I attach the file "features/support/book/Bertrand_Russel-Theory-of-Knowledge.pdf" to "File"
@@ -15,7 +19,7 @@ Feature: Indexing Book
       And I fill in "Year" with "1926"
       And I fill in "Publisher" with "The Encyclopaedia Britannica"
       And I fill in "Edition" with "First Edition"
-      And I select "Bertrand Russel" from "Author"
+      And I fill in "Author" with "Bertrand Russel"
     When I press "Save"
     Then I should see "Book saved successfully!"
 

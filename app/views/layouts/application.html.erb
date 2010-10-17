@@ -19,6 +19,7 @@
   <script type="text/javascript">
   $(document).ready(function() {
     $('form').draggable();
+    $('.modal').draggable();
   });
   <%= "alert('"+flash[:notice]+"');" if flash[:notice] %>
   </script>
@@ -27,10 +28,12 @@
   <div id="top">
   <div class="container">
     <a href="/"><img src="/images/title.png" alt="Cordel" /></a>
+    <% if current_user %>
     <div id="login">
-      <a href="/user/edit"><img src="http://2.gravatar.com/avatar/943753a9af1bd4a2f6466875ac5efccd?size=14" alt="henriquegogo" /></a>
-      @henriquegogo
+      <a href="/users"><img src="http://2.gravatar.com/avatar/943753a9af1bd4a2f6466875ac5efccd?size=14" alt="@<%= current_user.twitter_username %>" />
+      @<%= current_user.twitter_username %></a>
     </div>
+    <% end %>
   </div>
   </div>
   <div id="content">
