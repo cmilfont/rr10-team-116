@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     @book = Book.new(params[:book])
     respond_to do |format|
       if @book.save
+        Book.deliver(@book.id)
         flash[:notice] = 'Book saved successfully!'
         format.html { redirect_to(@book) }
       else
