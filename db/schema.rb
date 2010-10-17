@@ -9,8 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016230930) do
-
+ActiveRecord::Schema.define(:version => 20101016232252) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -32,15 +31,6 @@ ActiveRecord::Schema.define(:version => 20101016230930) do
     t.decimal  "rating_average",    :precision => 6, :scale => 2, :default => 0.0
   end
 
-  create_table "rates", :force => true do |t|
-    t.integer  "rater_id"
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.integer  "stars",         :null => false
-    t.string   "dimension"
-     t.datetime "created_at"
-    t.datetime "updated_at"
-  end
   create_table "pages", :force => true do |t|
     t.integer  "page_number"
     t.integer  "book_id"
@@ -49,9 +39,18 @@ ActiveRecord::Schema.define(:version => 20101016230930) do
     t.datetime "updated_at"
   end
 
+  create_table "rates", :force => true do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.integer  "stars",         :null => false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   add_index "rates", ["rateable_id", "rateable_type"], :name => "index_rates_on_rateable_id_and_rateable_type"
   add_index "rates", ["rater_id"], :name => "index_rates_on_rater_id"
-
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
