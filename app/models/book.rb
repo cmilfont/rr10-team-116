@@ -10,6 +10,8 @@ class Book < ActiveRecord::Base
   has_many :pages, :dependent => :destroy
 
   has_attached_file :file
+  validates_attachment_size :file, :less_than => 5.megabytes
+  validates_attachment_content_type :file, :content_type => ['application/pdf']
 
   searchable do
     text :tag_list
@@ -42,7 +44,7 @@ class Book < ActiveRecord::Base
   rescue Exception => e
     book.index_erro = e.message
   end
-  
+
   def large_image_path
     if cover_img_uuid
       Book.cover_dir + "/cover_#{cover_img_uuid}_large.png"
@@ -50,15 +52,15 @@ class Book < ActiveRecord::Base
       "cover_large.png"
     end
   end
-  
+
   def small_image_path
     if cover_img_uuid
       Book.cover_dir + "/cover_#{cover_img_uuid}_small.png"
     else
       "cover_small.png"
-    end  
+    end
   end
-  
+
   def thumb_image_path
     if cover_img_uuid
       Book.cover_dir + "/cover_#{cover_img_uuid}_thumb.png"
@@ -66,16 +68,16 @@ class Book < ActiveRecord::Base
       "cover_thumb.png"
     end
   end
-  
-  
+
+
   def file_full_path
-    RAILS_ROOT + "/public" + file.url    
+    RAILS_ROOT + "/public" + file.url
   end
-    
+
   def self.cover_dir
-     return "/images/covers"  
+     return "/images/covers"
   end
-  
+
   def self.full_cover_dir
     return RAILS_ROOT + "/public"+ cover_dir
   end
@@ -99,10 +101,10 @@ class Book < ActiveRecord::Base
     end
 
     def deliver(id)
+      Resque.enqueue(GenerateBookCover, id)
       Resque.enqueue(Book, id)
-      Resque.enqueue(GenerateBookCover, id)      
     end
-                
+
     def perform(id)
       new().process(id)
     end
