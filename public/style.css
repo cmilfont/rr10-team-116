@@ -17,6 +17,15 @@ body {
 img {
   border: none;  
 }
+ol {
+  margin: 0;
+  padding: 0;
+}
+ol li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
 .container {
   margin: 0 auto;
@@ -36,8 +45,6 @@ img {
   margin-top: 7px;
   padding: 2px 5px;
   font-size: 10px;
-  font-weight: bold;
-  color: #FFF;
   background: url('images/topBg.png') repeat-x;
   border: 1px solid black;
   border-radius: 3px;
@@ -48,11 +55,17 @@ img {
   -moz-box-shadow: 1px 1px 1px #5E3513;
   -webkit-box-shadow: 1px 1px 1px #5E3513;
 }
+#top #login a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #FFF;
+}
 #top #login img {
   vertical-align: middle;
 }
 
 #content {
+  position: relative;
   width: 100%;
   margin-top: -22px;
   padding: 20px 0;
@@ -94,9 +107,10 @@ ul#books .shelf li img {
 
 form {
   position: absolute;
-  top: 150px;
-  left: 300px;
+  top: 50px;
+  margin-left: 200px;
   padding: 10px 20px;
+  z-index: 2;
   background: #F5F5F6;
   background: -moz-linear-gradient(top, #F5F5F6, #E8E9EA);
   background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F6), to(#E8E9EA));
@@ -139,6 +153,12 @@ form input[type='text'] {
   background: #FFF;
   border: 1px solid #C6C6C6;
   -moz-border-radius: 6px;
+}
+form label {
+  display: block;
+}
+form fieldset {
+  border: none;
 }
 h1 {
   margin: 0;
