@@ -7,15 +7,12 @@ class Book < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user
 
-  belongs_to :author
   has_many :pages, :dependent => :destroy
 
   has_attached_file :file
 
   searchable do
-    text :author do
-      author.name
-    end
+    text :author
     text :title
     text :edition
     text :publisher
