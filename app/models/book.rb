@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
 
+  acts_as_taggable
+  ajaxful_rateable :stars => 10
   @queue = :file_serve
 
   belongs_to :author
@@ -28,7 +30,7 @@ class Book < ActiveRecord::Base
     page_number = 0
     receiver.content.each{|page|
       page_number += 1
-      book.pages << Pagina.new(:content => page, :page_number => page_number)
+      book.pages << Page.new(:content => page, :page_number => page_number)
     }
     book.save
     Sunspot.index book.pages

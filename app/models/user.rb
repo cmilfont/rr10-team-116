@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic
+  ajaxful_rater
+  
   validates_presence_of :oauth_id, :username, :full_name, :provider
   validates_format_of :website, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
   

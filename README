@@ -1,11 +1,14 @@
 ###suporte a filas
+
 #instalar o redis
 #execute o comando abaixo
 redis-server
+
 #E na raiz do projeto
-rake resque:work QUEUE=* VERBOSE=1
+QUEUE=* VERBOSE=1rake resque:work 
 
 #para ver os jobs
 resque-web
+
 #acessa na url http://localhost:5678/overview
 

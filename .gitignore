@@ -7,3 +7,4 @@ db/*.sqlite3
 .bundle
 *.swp
 config/database.yml
+sunspot-solr.pid
