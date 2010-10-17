@@ -20,7 +20,7 @@
 <body>
   <div id="top">
   <div class="container">
-    <img src="images/title.png" alt="Cordel" />
+    <img src="/images/title.png" alt="Cordel" />
     <div id="login">
       <img src="http://2.gravatar.com/avatar/943753a9af1bd4a2f6466875ac5efccd?size=14" alt="henriquegogo" />
       @henriquegogo
@@ -29,45 +29,7 @@
   </div>
   <div id="content">
   <div class="container">
-    <div id="text">
-      <%= yield %>
-    </div>
-    
-    <form>
-      <h1>Data entry dialog</h1>
-      <select>
-        <option>Primeira</option>
-        <option>Segunda</option>
-      </select>
-      <input type="text" name="some_name" value="O valor" />
-      E aí, galera?<br />E aí, galera?<br />E aí, galera?<br />E aí, galera?<br />E aí, galera?<br />E aí, galera?<br />
-      <input type="submit" value="Submit" />
-    </form>      
-
-    <ul id="books">
-      <div class="shelf">
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-      </div>
-      <div class="shelf">
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-      </div>
-      <div class="shelf">
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-        <li><img src="images/twilight_book_cover.jpg" alt="Twilight" /></li>
-      </div>
-    </ul>
+    <%= yield %>
     <div style="clear: both"></div>
   </div>
   </div>
