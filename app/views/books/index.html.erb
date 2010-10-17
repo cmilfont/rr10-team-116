@@ -1,4 +1,7 @@
 <div id="sidebar">
+  <h2>Insert your books</h2>
+  <p>Do you want to send books? It's simple! Just click <a href="/books/new">here</a> and fill the form.</p>
+  <p><a href="/books/new" class="button">Add book</a></p>
   <h2>What is this place?</h2>
   <p>Here you will list all your books and covers, and find by content.</p>
   <h2>Search my books</h2>
@@ -8,6 +11,7 @@
   <% end %>
 </div>
 
+<h1>Books</h1>
 <%= render 'books' %>
 
 <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>

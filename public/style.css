@@ -17,6 +17,15 @@ ul {
 ul li {
   margin-bottom: 10px;
 }
+ul.listing {
+  margin: 0;
+  padding: 0;
+}
+ul.listing li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 ol {
   margin: 0;
   padding: 0;
@@ -80,6 +89,9 @@ form input[type='text'] {
   text-transform: uppercase;
   color: #FFF;
   background: #2F2428;
+  box-shadow: 2px 2px 2px #2C4F4F;
+  -moz-box-shadow: 2px 2px 2px #2C4F4F;
+  -webkit-box-shadow: 2px 2px 2px #2C4F4F;
 }
 #user a:hover {
   color: #F00;
@@ -125,6 +137,9 @@ ul#menu li a.active {
   font-size: 14px;
   color: #585655;
   background: #FFF;
+  box-shadow: 2px 2px 15px #2C4F4F;
+  -moz-box-shadow: 2px 2px 15px #2C4F4F;
+  -webkit-box-shadow: 2px 2px 15px #2C4F4F;
 }
 #content h1 {
   display: inline;
@@ -139,6 +154,24 @@ ul#menu li a.active {
   padding: 0;
   text-transform: uppercase;
   font-size: 14px;
+}
+
+ul#books {
+  margin: 0;
+  padding: 0;
+}
+ul#books li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul#books li a img {
+  margin-bottom: 15px;
+  margin-right: 15px;
+  box-shadow: 2px 0 10px #222;
+  -moz-box-shadow: 2px 0 10px #222;
+  -webkit-box-shadow: 2px 0 10px #222;
 }
 
 #sidebar {

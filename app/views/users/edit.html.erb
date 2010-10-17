@@ -1,10 +1,9 @@
-<% semantic_form_for(@user) do |f| %>	
-  <h1>Edit User</h1>
 <div id="sidebar">
   <h2>Your profile is very important</h2>
   <p>Although we take your profile data from twitter or facebook, it is important that you keep your information current.</p>
 </div>
 
+<% semantic_form_for(@user) do |f| %>	
   <h1>Edit user</h1>
 	<% f.inputs do %>
     <%= f.error_messages %>

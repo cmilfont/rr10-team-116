@@ -1,9 +1,10 @@
-<h3>Users</h3>
-<table>
+<h1>Users</h1>
+<ul class="listing">
 	<% @users.each do |u| %>
-		<tr>
-			<td><%= link_to image_tag(u.profile_image_url, :alt => u.username), :action => :show, :id => u %></td>
-			<td><%= link_to u.username,  :action => :show, :id => u %><br/><%=h u.full_name %></td>
-		</tr>
+		<li style="margin: 20px 0">
+			<%= link_to image_tag(u.profile_image_url, :alt => u.username), :action => :show, :id => u %><br/>
+			<%= link_to u.username, :action => :show, :id => u %><br/>
+      <%=h u.full_name %>
+		</li>
 	<% end %>
-	
+</ul>

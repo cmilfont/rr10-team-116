@@ -1,6 +1,5 @@
-<h1>Upload, organize and share pdf books with your friends</h1>
-<br />
-
+<div id="sidebar">
+  <h2>Top Rated Books</h2>
 
 <ul id="books">
   <div class="shelf">Top Rated Books
@@ -20,3 +19,4 @@
 <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
   <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
 <% end %>
+<img src="/images/banner.jpg">

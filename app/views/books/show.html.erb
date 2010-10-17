@@ -1,15 +1,12 @@
 <div id="sidebar">
+  <% if current_user && current_user.owner_of(@book) %>
+    <%= link_to 'Edit', edit_book_path(@book), :class => 'button' %>
+    <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %>
+  <% end %>
   <p><%= image_tag(@book.small_image_path, :alt => @book.title)%></p>
 </div>
 
 <h1><%=h @book.title %></h1>
-
-
-<% if current_user && current_user.owner_of(@book) %>
-<%= link_to 'Edit', edit_book_path(@book), :class => 'button' %>
-<%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %>
-<% end %>
-
 
 <p><%= ratings_for @book %></p>
 <p>
@@ -39,7 +36,7 @@
 
 <p>
   <b>PAGES:</b>
-  <%=h @book.pages.size %> in file
+  <%=h @book.pages.size %> in file <%= "<span style='color:red;'>waiting for the indexing process finishes!<span/>" if @book.pages.size == 0  %>
 </p>
 
 <% if current_user && current_user.owner_of(@book) %>
