@@ -10,6 +10,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(params[:book])
+    @book.user = current_user if current_user
     respond_to do |format|
       if @book.save
         Book.deliver(@book.id)
@@ -20,16 +21,16 @@ class BooksController < ApplicationController
       end
     end
   end
-  
+
   def index
     @books = Book.all
 
     respond_to do |format|
-      format.html 
+      format.html
       format.xml  { render :xml => @book }
     end
   end
-  
+
   def rate
     @book = book.find(params[:id])
     @book.rate(params[:stars], current_user)

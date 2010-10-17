@@ -4,15 +4,15 @@ class Book < ActiveRecord::Base
   ajaxful_rateable :stars => 10
   @queue = :file_serve
 
-  belongs_to :author
+  belongs_to :user
+  validates_presence_of :user
+
   has_many :pages, :dependent => :destroy
 
   has_attached_file :file
 
   searchable do
-    text :author do
-      author.name
-    end
+    text :author
     text :title
     text :edition
     text :publisher
