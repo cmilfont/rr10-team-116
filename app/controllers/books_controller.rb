@@ -54,16 +54,28 @@ class BooksController < ApplicationController
         end
       end
     end
+    
+    def tag
+      tag = params[:id]
+      @books = Book.tagged_with(tag)
+      @tags = Book.tag_counts_on(:tags)
+
+      render  :action => :index
+
+
+    end
 
     def index
       @books = Book.all
+
+      @tags = Book.tag_counts_on(:tags)
+
 
       respond_to do |format|
         format.html
         format.xml  { render :xml => @books }
       end
       
-      @tags = Book.tag_counts_on(:tags)
     end
 
     def search_books
