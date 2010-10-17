@@ -3,8 +3,14 @@
 </div>
 
 <h1><%=h @book.title %></h1>
+
+
+<% if current_user && current_user.owner_of(@book) %>
 <%= link_to 'Edit', edit_book_path(@book), :class => 'button' %>
 <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete, :class => 'button' %>
+<% end %>
+
+
 <p><%= ratings_for @book %></p>
 <p>
   <b>TITLE:</b>
@@ -32,7 +38,7 @@
 </p>
 
 <p>
-  <b>Pages:</b>
+  <b>PAGES:</b>
   <%=h @book.pages.size %> in file
 </p>
 
@@ -41,18 +47,5 @@
   <b>FILE:</b>
   <a href="<%=h @book.file.url %>">Get book</a>
 </p>
-<% end %>
-
-<div style="position:absolute; left:600px; top:0px">
-	<%= image_tag(@book.small_image_path, :alt => @book.title)%>
-</div>
-
-<div style="position:absolute; left:850px; top:150px">
-	Ratings: <%= ratings_for @book %>
-</div>
-
-<% if current_user && current_user.owner_of(@book) %>
-  <%= link_to 'Edit', edit_book_path(@book) %>
-  <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %>
 <% end %>
 
