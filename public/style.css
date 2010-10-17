@@ -80,6 +80,9 @@ form input[type='text'] {
   text-transform: uppercase;
   color: #FFF;
   background: #2F2428;
+  box-shadow: 2px 2px 2px #2C4F4F;
+  -moz-box-shadow: 2px 2px 2px #2C4F4F;
+  -webkit-box-shadow: 2px 2px 2px #2C4F4F;
 }
 #user a:hover {
   color: #F00;
@@ -125,6 +128,9 @@ ul#menu li a.active {
   font-size: 14px;
   color: #585655;
   background: #FFF;
+  box-shadow: 2px 2px 15px #2C4F4F;
+  -moz-box-shadow: 2px 2px 15px #2C4F4F;
+  -webkit-box-shadow: 2px 2px 15px #2C4F4F;
 }
 #content h1 {
   display: inline;
