@@ -39,7 +39,7 @@
 
 <p>
   <b>PAGES:</b>
-  <%=h @book.pages.size %> in file
+  <%=h @book.pages.size %> in file <%= "<span style='color:red;'>waiting for the indexing process finishes!<span/>" if @book.pages.size == 0  %>
 </p>
 
 <% if current_user && current_user.owner_of(@book) %>
