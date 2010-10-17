@@ -1,3 +1,5 @@
+<div class='modal'>
+<h1><%=h @book.title %></h1>
 <p>
   <b>Title:</b>
   <%=h @book.title %>
@@ -22,3 +24,5 @@
   <b>Publisher:</b>
   <%=h @book.publisher %>
 </p>
+</div>
+<%= render 'books' %>

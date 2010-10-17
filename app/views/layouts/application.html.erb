@@ -19,6 +19,7 @@
   <script type="text/javascript">
   $(document).ready(function() {
     $('form').draggable();
+    $('.modal').draggable();
   });
   <%= "alert('"+flash[:notice]+"');" if flash[:notice] %>
   </script>
@@ -36,7 +37,6 @@
   <div id="content">
   <div class="container">
     <%= yield %>
-    <%= render 'layouts/books' %>
     <div style="clear: both"></div>
   </div>
   </div>

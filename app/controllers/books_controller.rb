@@ -24,10 +24,12 @@ class BooksController < ApplicationController
   
   def edit
     @book = Book.find(params[:id])
+    @books = Book.all
   end
   
   def show
     @book = Book.find(params[:id])
+    @books = Book.all
   end
   
   def update
