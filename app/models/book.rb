@@ -1,5 +1,7 @@
 class Book < ActiveRecord::Base
 
+  acts_as_taggable
+  ajaxful_rateable :stars => 10
   @queue = :file_serve
 
   belongs_to :author

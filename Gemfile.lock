@@ -13,8 +13,9 @@ GEM
     activeresource (2.3.9)
       activesupport (= 2.3.9)
     activesupport (2.3.9)
-    acts-as-taggable-on (2.0.0.rc1)
+    acts-as-taggable-on (2.0.6)
     addressable (2.2.2)
+    ajaxful_rating (2.2.8.2)
     arrayfields (4.7.4)
     authlogic (2.1.6)
       activesupport
@@ -211,7 +212,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on (= 2.0.0.rc1)
+  acts-as-taggable-on (= 2.0.6)
+  ajaxful_rating
   authlogic (~> 2.1.6)
   capybara (= 0.3.9)
   cucumber-rails (= 0.3.0)
