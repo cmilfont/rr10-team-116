@@ -39,6 +39,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     respond_to do |format|
+      Sunspot.remove @book
       if @book.update_attributes(params[:book])
         Book.deliver(@book.id)
         flash[:notice] = 'Book saved successfully!'
@@ -55,6 +56,17 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html
       format.xml  { render :xml => @books }
+    end
+  end
+  
+  def destroy
+    @book = Book.find(params[:id])
+    Sunspot.remove @book
+    @book.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to(books_url) }
+      format.xml  { head :ok }
     end
   end
 
