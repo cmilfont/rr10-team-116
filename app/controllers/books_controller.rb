@@ -25,17 +25,17 @@ class BooksController < ApplicationController
       end
     end
   end
-  
+
   def edit
     @book = Book.find(params[:id])
     @books = Book.all
   end
-  
+
   def show
     @book = Book.find(params[:id])
     @books = Book.all
   end
-  
+
   def update
     @book = Book.find(params[:id])
     respond_to do |format|
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
       end
     end
   end
-  
+
   def index
     @books = Book.all
 
@@ -57,9 +57,18 @@ class BooksController < ApplicationController
       format.xml  { render :xml => @books }
     end
   end
-  
+
+  def books_by_user
+    @user = User.find(params[:id])
+    @books = Book.find(:all, :conditions => {:user => @user})
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @books }
+    end  
+  end
+
   def my_books
-    @books = Book.find(:all, :conditions(:user => current_user))
+    @books = Book.find(:all, :conditions => {:user => current_user})
     respond_to do |format|
       format.html
       format.xml  { render :xml => @books }
@@ -70,8 +79,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.rate(params[:stars], current_user)
     render :update do |page|
-#      page.replace_html @book.wrapper_dom_id(params), ratings_for(@book)
-   #   page.visual_effect :highlight, @book.wrapper_dom_id(params)
+      puts "******************  @book.wrapper_dom_id(params): #{ @book.wrapper_dom_id(params)}"
+      page.replace_html @book.wrapper_dom_id(params), "asdsads" # ratings_for(@book)
+      #   page.visual_effect :highlight, @book.wrapper_dom_id(params)
     end
   end
 
