@@ -1,0 +1,20 @@
+test: &TEST
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: cordel_test
+  pool: 5
+  username: root
+  password: root
+
+production:
+  <<: *TEST
+  database: cordel_production
+
+development:
+  <<: *TEST
+  database: cordel_development
+
+cucumber:
+  <<: *TEST
+

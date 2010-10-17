@@ -5,4 +5,5 @@ tmp/**/*
 db/*.sqlite3
 .project
 .bundle
+*.swp
 config/database.yml

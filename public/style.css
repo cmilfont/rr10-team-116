@@ -51,6 +51,7 @@ body {
 #content {
   width: 100%;
   margin-top: -22px;
+  padding: 20px 0;
   background: #FEB;
 }
 
@@ -61,7 +62,7 @@ body {
 
 ul#books {
   float: right;
-  margin: 0;
+  margin: -20px 0;
   padding-top: 40px;
   width: 818px;
   height: 493px;
@@ -89,7 +90,7 @@ ul#books .shelf li img {
 
 form {
   position: absolute;
-  top: 200px;
+  top: 150px;
   left: 300px;
   padding: 10px 20px;
   background: #F5F5F6;
@@ -134,6 +135,9 @@ form input[type='text'] {
   background: #FFF;
   border: 1px solid #C6C6C6;
   -moz-border-radius: 6px;
+}
+h1 {
+  margin: 0;
 }
 
 #bottom {

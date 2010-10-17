@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Books: <%= controller.action_name %></title>
@@ -11,10 +10,39 @@
 
 </head>
 <body>
+  <title><%= controller.action_name + " :: " if controller.action_name %>Cordel</title>
 
-<p style="color: green"><%= flash[:notice] %></p>
+  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <script src="/javascripts/jquery-1.4.3.min.js" type="text/javascript"></script>
+  <script src="/javascripts/jquery-ui-1.8.5.custom.min.js" type="text/javascript"></script>
 
-<%= yield %>
-
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('form').draggable();
+  });
+  <%= "alert('"+flash[:notice]+"');" if flash[:notice] %>
+  </script>
+</head>
+<body>
+  <div id="top">
+  <div class="container">
+    <img src="/images/title.png" alt="Cordel" />
+    <div id="login">
+      <img src="http://2.gravatar.com/avatar/943753a9af1bd4a2f6466875ac5efccd?size=14" alt="henriquegogo" />
+      @henriquegogo
+    </div>
+  </div>
+  </div>
+  <div id="content">
+  <div class="container">
+    <%= yield %>
+    <div style="clear: both"></div>
+  </div>
+  </div>
+  <div id="bottom">
+    <b>Cordel</b> is a personal virtual library made by @cmilfont @henriquegogo @rodrigodealer and @razenha<br />
+    "Open your mind and go away"
+  </div>
 </body>
 </html>
+
