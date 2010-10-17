@@ -1,1 +1,6 @@
 <%= render 'books' %>
+
+<% form_tag ("/books/search_mybooks", :method => :get) do %>
+	<%= text_field_tag :query, @query %>
+	<%= submit_tag "Buscar" %>
+<% end %>
