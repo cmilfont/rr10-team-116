@@ -1,5 +1,5 @@
-<% semantic_form_for(:user, @user, :url => {:action => :update, :id => @user} ) do |f| %>	
-  <h1>Editar Usuário</h1>
+<% semantic_form_for(@user) do |f| %>	
+  <h1>Edit User</h1>
 	<% f.inputs do %>
     <%= f.error_messages %>
 		<p><%= f.input :full_name, :label => 'Name' %></p>

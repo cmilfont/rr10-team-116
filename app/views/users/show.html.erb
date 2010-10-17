@@ -1,0 +1,11 @@
+<%= image_tag(@user.profile_image_url, :alt => @user.username) %>
+<table>
+ <tr><td>Username:</td><td><%=h @user.username %></td></tr>
+ <tr><td>Full name:</td><td><%=h @user.full_name %></td></tr>
+<% if @user.email %>
+<tr><td>E-mail:</td><td><%=h @user.email %></td></tr>
+<% end %>
+<% if @user.website %>
+<tr><td>Site:</td><td><%=h @user.website %></td></tr>
+<% end %>
+</table>
