@@ -1,175 +1,105 @@
 html {
-  height: 100%;
-  font-family: Arial, sans-serif;
-  color: #333;
-  background: #EFB168;
+  background: #86AFAF url('images/bg.gif') no-repeat center top;
 }
 body {
-  margin: 0;
-  /* margin: 15px auto; */
-  /* width: 1000px; */
-  /* border: 1px solid #530; */
-  /* box-shadow: 0 0 20px #000; */
-  /* -moz-box-shadow: 0 0 20px #000; */
-  /* -webkit-box-shadow: 0 0 20px #000; */
+  margin: 0 auto;
+  width: 1000px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
 }
 
 img {
-  border: none;  
-}
-ol {
-  margin: 0;
-  padding: 0;
-}
-ol li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.container {
-  margin: 0 auto;
-  width: 800px;
+  border: none;
 }
 
 #top {
   position: relative;
-  padding: 10px;
-  height: 56px;
-  z-index: 1;
-  background: url('images/topBg.png') repeat-x;
+  padding: 10px 0 3px 0;
+  color: #2F2428;
 }
-#top #login {
-  float: right;
-  display: inline;
-  margin-top: 7px;
-  padding: 2px 5px;
-  font-size: 10px;
-  background: url('images/topBg.png') repeat-x;
-  border: 1px solid black;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  text-shadow: 1px 1px 3px #000;
-  box-shadow: 1px 1px 3px #5E3513;
-  -moz-box-shadow: 1px 1px 1px #5E3513;
-  -webkit-box-shadow: 1px 1px 1px #5E3513;
-}
-#top #login a {
+
+#logo {
+  float: left;
+  font-size: 45px;
   font-weight: bold;
+  letter-spacing: -2px;
+}
+
+#user,
+#login {
+  position: absolute;
+  right: 0;
+}
+#user a {
+  padding: 3px 8px;
+  font-size: 11px;
   text-decoration: none;
+  text-transform: uppercase;
   color: #FFF;
+  background: #2F2428;
 }
-#top #login img {
-  vertical-align: middle;
+#user a:hover {
+  color: #F00;
 }
-
-#content {
-  position: relative;
-  width: 100%;
-  margin-top: -22px;
-  padding: 20px 0;
-  background: #FEB;
+#user img {
+  border: 2px solid #86AFAF;
+  margin-bottom: -5px;
+  margin-left: -7px;
 }
-
-#left {
-  padding: 20px;
-  width: 400px;
+#login img {
+  height: 20px;
+  border: 1px solid #FFF;
 }
 
-#books {
-  float: right;
-  margin: -20px 0;
-  padding-top: 40px;
-  width: 818px;
-  height: 493px;
-  background: #FEB url('images/wood.png') no-repeat right;
+ul#menu {
+  float: left;
+  margin: 0;
+  margin-top: 60px;
+  margin-left: 40px;
+  padding: 0;
 }
-ul#books .shelf {
-  padding-bottom: 42px;
-  padding-left: 50px;
-  width: 768px;
-  background: url('images/shelf.png') no-repeat bottom;
-}
-ul#books .shelf li {
+ul#menu li {
   display: inline;
   list-style: none;
 }
-ul#books .shelf li img {
-  margin-right: 30px;
-  height: 115px;
-  cursor: pointer;
-  border-right: 7px solid #FFF;
-  box-shadow: 5px 0 20px #555;
-  -moz-box-shadow: 5px 0 20px #555;
-  -webkit-box-shadow: 5px 0 20px #555;
+ul#menu li a {
+  margin-right: 20px;
+  font-size: 19px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #2F2428;
+  letter-spacing: 3px;
+}
+ul#menu li a:hover,
+ul#menu li a.active {
+  color: #FFF;
 }
 
-form,
-.modal {
-  position: absolute;
-  top: 50px;
-  margin-left: 200px;
-  padding: 10px 20px;
-  z-index: 2;
-  background: #F5F5F6;
-  background: -moz-linear-gradient(top, #F5F5F6, #E8E9EA);
-  background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F6), to(#E8E9EA));
-  border: 1px solid #FFF;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  box-shadow: 0 0 30px #000;
-  -moz-box-shadow: 0 0 30px #000;
-  -webkit-box-shadow: 0 0 30px #000;
-}
-form h1,
-.modal h1 {
-  margin: -11px -21px 10px -21px;
-  padding: 0 20px;
-  font-size: 15px;
-  line-height: 30px;
-  color: #FFF;
-  cursor: pointer;
-  background: url('images/topBg.png') repeat-x;
-  border: 1px solid #000;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-}
-form select {
-  padding: 5px 10px;
-  height: 30px;
-  font-weight: bold;
-  line-height: 30px;
+#container {
+  clear: both;
+  padding: 20px;
+  font-size: 12px;
+  color: #585655;
   background: #FFF;
-  border: 1px solid #C6C6C6;
-  -moz-border-radius: 6px;
 }
-form input[type='text'] {
-  padding: 5px 10px;
-  height: 18px;
-  font-weight: bold;
-  line-height: 18px;
-  background: #FFF;
-  border: 1px solid #C6C6C6;
-  -moz-border-radius: 6px;
+
+#sidebar {
+  float: left;
+  width: 300px;
+  text-transform: uppercase;
 }
-form label,
-.modal label {
-  display: block;
-}
-form fieldset {
-  border: none;
-}
-h1 {
-  margin: 0;
+
+#content {
+  
 }
 
 #bottom {
-  padding: 20px;
-  font-size: 12px;
+  padding: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
   text-align: center;
-  color: #7C4619;
+  color: #585655;
+  line-height: 19px;
 }
+
+.white { color: #FFF; }
