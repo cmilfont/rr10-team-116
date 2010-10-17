@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
     user_info = oauth_data["user_info"]
     oauth_id = oauth_data["uid"]
 
-puts "*********************8888"
-puts user_info.to_json
 
     user = User.create( :oauth_id => oauth_id,
                         :full_name => user_info["name"],

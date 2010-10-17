@@ -55,12 +55,12 @@ class BooksController < ApplicationController
   end
 
   def rate
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
     @book.rate(params[:stars], current_user)
-    #render :update do |page|
-     # page.replace_html @car.wrapper_dom_id(params), ratings_for(@car, params.merge(:wrap => false))
-     # page.visual_effect :highlight, @car.wrapper_dom_id(params)
-    #end
+    render :update do |page|
+#      page.replace_html @book.wrapper_dom_id(params), ratings_for(@book)
+   #   page.visual_effect :highlight, @book.wrapper_dom_id(params)
+    end
   end
 
 end

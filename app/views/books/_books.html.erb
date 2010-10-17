@@ -5,7 +5,7 @@
       </div>
       <div class="shelf">
     <% end %>
-    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title), book %></li>
+    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
   <% end %>
   </div>
 </ul>

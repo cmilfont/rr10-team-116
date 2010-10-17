@@ -1,7 +1,7 @@
 class Book < ActiveRecord::Base
 
   acts_as_taggable
-  ajaxful_rateable :stars => 10
+  ajaxful_rateable :stars => 5
   @queue = :file_serve
 
   belongs_to :user
@@ -37,15 +37,27 @@ class Book < ActiveRecord::Base
   end
   
   def large_image_path
-    Book.cover_dir + "/cover_#{cover_img_uuid}_large.png"
+    if cover_img_uuid
+      Book.cover_dir + "/cover_#{cover_img_uuid}_large.png"
+    else
+      "cover_large.png"
+    end
   end
   
   def small_image_path
-    Book.cover_dir + "/cover_#{cover_img_uuid}_small.png"
+    if cover_img_uuid
+      Book.cover_dir + "/cover_#{cover_img_uuid}_small.png"
+    else
+      "cover_small.png"
+    end  
   end
   
   def thumb_image_path
-    Book.cover_dir + "/cover_#{cover_img_uuid}_thumb.png"
+    if cover_img_uuid
+      Book.cover_dir + "/cover_#{cover_img_uuid}_thumb.png"
+    else
+      "cover_thumb.png"
+    end
   end
   
   
