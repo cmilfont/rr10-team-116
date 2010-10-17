@@ -14,6 +14,9 @@ gem 'sunspot_rails', "1.0.3"
 gem "resque"
 gem 'formtastic', '~> 1.1.0'
 gem "nifty-generators"
+gem "acts-as-taggable-on", '2.0.0.rc1'
+
+
 group :development do
   gem "flog", "2.4.0"
   gem "metric_fu", "1.5.1"

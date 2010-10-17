@@ -19,6 +19,15 @@ class BooksController < ApplicationController
       end
     end
   end
+  
+  def index
+    @book = Book.all
+
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @book }
+    end
+  end
 
 end
 
