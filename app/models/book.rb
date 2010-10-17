@@ -12,6 +12,7 @@ class Book < ActiveRecord::Base
   has_attached_file :file
 
   searchable do
+    text :tag_list
     text :author
     text :title
     text :edition
@@ -71,6 +72,14 @@ class Book < ActiveRecord::Base
   
   def self.full_cover_dir
     return RAILS_ROOT + "/public"+ cover_dir
+  end
+
+  def self.recent_books
+    return Book.find(:all, :conditions => ["cover_img_uuid <> ?", nil], :order => "created_at DESC")
+  end
+
+  def self.top_rated_books
+    return Book.find(:all, :conditions => ["cover_img_uuid <> ?", nil], :order => "rating_average DESC")
   end
 
   class << self

@@ -20,6 +20,7 @@
   $(document).ready(function() {
     $('form').draggable();
     $('.modal').draggable();
+    $('#login_window').dialog();
   });
   <%= "alert('"+flash[:notice]+"');" if flash[:notice] %>
   </script>
@@ -45,6 +46,13 @@
   <div id="bottom">
     <b>Cordel</b> is a personal virtual library made by @cmilfont @henriquegogo @rodrigodealer and @razenha<br />
     "Open your mind and go away"
+  </div>
+
+  <div id="login_window" title="Teste">
+	<p>
+	<%= link_to image_tag("twitter.png"), "/auth/twitter" %> <br/>
+	<%= link_to image_tag("facebook.png"), "/auth/facebook" %> <br/>
+    </p>
   </div>
 </body>
 </html>

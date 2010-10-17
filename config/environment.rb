@@ -40,5 +40,6 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   
   config.middleware.use "OmniAuth::Strategies::Twitter", 'fIGW4FKbWI0r9EwSpaiGA', 'i4iBCT4b80LZS3mtR9du0VUME1HArNeIrZaylqAiIfc'
+  config.middleware.use "OmniAuth::Strategies::Facebook", '133106903407309', '10f825007bd2121af214911addb01589'
   
 end

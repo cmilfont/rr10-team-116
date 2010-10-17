@@ -1,6 +1,5 @@
 class UserSessionsController < ApplicationController
   def new
-    redirect_to "/auth/twitter"
   end
 
   def create

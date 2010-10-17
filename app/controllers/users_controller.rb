@@ -15,4 +15,8 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+  
+  def sign_in
+    
+  end
 end

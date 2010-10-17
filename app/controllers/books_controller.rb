@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
 
+  before_filter :require_user, :only => [:new, :create, :edit, :rate, :update, :mybooks]
+
+
+
   def new
     @book = Book.new
     @books = Book.all
@@ -50,7 +54,15 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @book }
+      format.xml  { render :xml => @books }
+    end
+  end
+  
+  def my_books
+    @books = Book.find(:all, :conditions(:user => current_user))
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @books }
     end
   end
 

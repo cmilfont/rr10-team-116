@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :books, :member => {:rate => :post}
+  map.resources :books, :member => {:rate => :post, :mybooks => :get}
 
   # The priority is based upon order of creation: first created -> highest priority.
 
