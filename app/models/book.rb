@@ -20,8 +20,6 @@ class Book < ActiveRecord::Base
   end
 
   def process(book_id)
-    #require 'rubygems'
-    #require 'pdf/reader'
     book = Book.find(book_id)
 
     url = RAILS_ROOT + "/public" + book.file.url

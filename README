@@ -4,8 +4,11 @@
 #execute o comando abaixo
 redis-server
 
-#E na raiz do projeto
-QUEUE=* VERBOSE=1rake resque:work 
+#sobe o sunspot
+sunspot-rails start
+
+# na raiz do projeto
+QUEUE=* VERBOSE=1 rake resque:work
 
 #para ver os jobs
 resque-web
