@@ -32,6 +32,8 @@ class Book < ActiveRecord::Base
     }
     book.save
     Sunspot.index book.pages
+  rescue Exception => e
+    book.index_erro = e.message
   end
 
   class << self
