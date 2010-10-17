@@ -1,6 +1,12 @@
-<%= render 'books' %>
+<div id="sidebar">
+  <h2>You find what do you search?</h2>
+  <p>These are the books I have found that words or terms you searched.</p>
+  <h2>Search my books</h2>
+  <% form_tag ("/books/search_mybooks", :method => :get) do %>
+    <p><%= text_field_tag :query, @query %></p>
+    <p><%= submit_tag "Buscar" %></p>
+  <% end %>
+</div>
 
-<% form_tag ("/books/search_mybooks", :method => :get) do %>
-	<%= text_field_tag :query, @query %>
-	<%= submit_tag "Buscar" %>
-<% end %>
+<h1>Search results</h1>
+<%= render 'books' %>
