@@ -75,11 +75,11 @@ class Book < ActiveRecord::Base
   end
 
   def self.recent_books
-    return Book.find(:all, :conditions => ["cover_img_uuid <> ?", nil], :order => "created_at DESC")
+    return Book.find(:all, :order => "created_at DESC")
   end
 
   def self.top_rated_books
-    return Book.find(:all, :conditions => ["cover_img_uuid <> ?", nil], :order => "rating_average DESC")
+    return Book.find(:all, :order => "rating_average DESC")
   end
 
   class << self

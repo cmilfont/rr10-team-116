@@ -1,5 +1,16 @@
-<h1>To login in this application, please click in the link forward and login in Twitter</h1>
-<br /><br />
-<div style="text-align: center">
-  <%= link_to "Login using Twitter", :controller => "user_sessions", :action => "new" %>
-</div>
+<h1>Upload, organize and share pdf books with your friends</h1>
+<br />
+
+
+<ul id="books">
+  <div class="shelf">Top Rated Books
+  <% Book.top_rated_books.each do |book| %>
+    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
+  <% end %>
+  </div>
+  <div class="shelf">Last Added Books
+  <% Book.recent_books.each do |book| %>
+    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
+  <% end %>
+  </div>
+</ul>
