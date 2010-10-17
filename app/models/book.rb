@@ -84,11 +84,11 @@ class Book < ActiveRecord::Base
   end
 
   def self.recent_books
-    return Book.find(:all, :order => "created_at DESC")
+    return Book.find(:all, :order => "created_at DESC LIMIT 8")
   end
 
   def self.top_rated_books
-    return Book.find(:all, :order => "rating_average DESC")
+    return Book.find(:all, :order => "rating_average DESC LIMIT 12")
   end
 
   class << self
