@@ -1,11 +1,6 @@
+<br /><br />
 <ul id="books">
-  <div class="shelf">
-  <% @books.each_with_index do |book, i| %>
-    <% if i % 6 == 0 && i != 0 %>
-      </div>
-      <div class="shelf">
-    <% end %>
-    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
+  <% @books.each do |book| %>
+    <li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
   <% end %>
-  </div>
 </ul>

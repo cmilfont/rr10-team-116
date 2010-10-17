@@ -1,11 +1,14 @@
-<%= image_tag(@user.profile_image_url, :alt => @user.username) %>
-<table>
- <tr><td>Username:</td><td><%=h @user.username %></td></tr>
- <tr><td>Full name:</td><td><%=h @user.full_name %></td></tr>
+<div id="sidebar">
+  <%= image_tag(@user.profile_image_url, :alt => @user.username) %><br />
+</div>
+
+<h1><%=h @user.full_name %></h1><br />
+<b>USERNAME: <%=h @user.username %><br />
+<b>FULL NAME: <%=h @user.full_name %><br />
 <% if @user.email %>
-<tr><td>E-mail:</td><td><%=h @user.email %></td></tr>
+  <b>E-MAIL:</b><%=h @user.email %><br />
 <% end %>
 <% if @user.website %>
-<tr><td>Site:</td><td><%=h @user.website %></td></tr>
+  <b>SITE:</b><%=h @user.website %><br />
 <% end %>
 </table>

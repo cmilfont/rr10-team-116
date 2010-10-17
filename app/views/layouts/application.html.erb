@@ -18,7 +18,7 @@
     </div>
     <% if current_user %>
     <div id="user">
-      <a href="/users"><img src="<%= current_user.profile_image_url %>" style="width: 14px; height: 14px" alt="@<%= current_user.twitter_username %>" /> @<%= current_user.twitter_username %></a>
+      <a href="/users/<%= current_user.id %>/edit"><img src="<%= current_user.profile_image_url %>" style="width: 14px; height: 14px" alt="@<%= current_user.twitter_username %>" /> @<%= current_user.twitter_username %></a>
       &nbsp; <a href="/user_sessions/destroy">Logout</a>
     </div>
     <% else %>
@@ -30,13 +30,14 @@
     <ul id="menu">
       <li><a href="/"<%= "class='active'" if controller.controller_name == 'index' %>>Home</a></li>
       <li><a href="/books"<%= "class='active'" if controller.controller_name == 'books' %>>Books</a></li>
-      <li><a href="/users"<%= "class='active'" if controller.controller_name == 'users' %>>Profile</a></li>
+      <% if current_user %>
+        <li><a href="/users/<%= current_user.id %>/edit"<%= "class='active'" if controller.controller_name == 'users' %>>Profile</a></li>
+      <% end %>
       <li><a href="#"<%= "class='active'" if controller.controller_name == 'about' %>>About</a></li>
     </ul>
     <div style="clear: both"></div>
   </div>
   <div id="content">
-    <%= flash[:notice] %>
     <%= yield %>
     <div style="clear: both"></div>
   </div>
@@ -46,4 +47,4 @@
   </div>
 </body>
 </html>
-
+<%= "<script>alert('" + flash[:notice] + "');</script>" if flash[:notice] %>

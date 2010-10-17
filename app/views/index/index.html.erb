@@ -1,16 +1,13 @@
-<h1>Upload, organize and share pdf books with your friends</h1>
-<br />
-
-
+<h1>Top Rated Books</h1><br /><br />
 <ul id="books">
-  <div class="shelf">Top Rated Books
   <% Book.top_rated_books.each do |book| %>
-    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
+    <li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
   <% end %>
-  </div>
-  <div class="shelf">Last Added Books
+</ul>
+
+<h1>Last Added Books</h1><br /><br />
+<ul id="books">
   <% Book.recent_books.each do |book| %>
-    	<li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
+    <li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title), book %></li>
   <% end %>
-  </div>
 </ul>
