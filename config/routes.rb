@@ -45,6 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "index"
 
   map.connect '/auth/:provider/callback', :controller => 'UserSessions', :action => 'create'
+  map.connect '/auth/failure', :controller => "UserSessions", :action => "auth_failure"
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

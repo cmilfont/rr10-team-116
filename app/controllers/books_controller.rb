@@ -79,9 +79,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.rate(params[:stars], current_user)
     render :update do |page|
-      puts "******************  @book.wrapper_dom_id(params): #{ @book.wrapper_dom_id(params)}"
-      page.replace_html @book.wrapper_dom_id(params), "asdsads" # ratings_for(@book)
-      #   page.visual_effect :highlight, @book.wrapper_dom_id(params)
+      page.replace_html @book.wrapper_dom_id(params),  ratings_for(@book)
     end
   end
 

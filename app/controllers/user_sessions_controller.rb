@@ -26,6 +26,13 @@ class UserSessionsController < ApplicationController
       end
     end
   end
+  
+  ERRORS = {"invalid_credentials" => "Invalid Crendentials"}
+  
+  def auth_failure
+    flash[:error] = ERRORS[params[:message]]
+    redirect_to "/"
+  end
 
   def destroy
     current_user_session.destroy
