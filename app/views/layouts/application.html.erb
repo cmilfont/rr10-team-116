@@ -28,14 +28,15 @@
   <div class="container">
     <a href="/"><img src="/images/title.png" alt="Cordel" /></a>
     <div id="login">
-      <a href="/user/edit"><img src="http://2.gravatar.com/avatar/943753a9af1bd4a2f6466875ac5efccd?size=14" alt="henriquegogo" /></a>
-      @henriquegogo
+      <a href="/users"><img src="http://2.gravatar.com/avatar/943753a9af1bd4a2f6466875ac5efccd?size=14" alt="henriquegogo" />
+      @henriquegogo</a>
     </div>
   </div>
   </div>
   <div id="content">
   <div class="container">
     <%= yield %>
+    <%= render 'layouts/books' %>
     <div style="clear: both"></div>
   </div>
   </div>

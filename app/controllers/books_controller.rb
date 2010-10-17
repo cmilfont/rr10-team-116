@@ -2,6 +2,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @books = Book.all
     respond_to do |format|
       format.html
     end
@@ -21,7 +22,7 @@ class BooksController < ApplicationController
   end
   
   def index
-    @book = Book.all
+    @books = Book.all
 
     respond_to do |format|
       format.html 
