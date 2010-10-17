@@ -12,11 +12,7 @@
       <li><%= link_to image_tag(book.thumb_image_path, :border => 0, :title => book.title, :alt => book.title, :width => "50"), book %></li>
     <% end %>
   </ul>
-  <ul id="books"><h2>Tags</h2>
-	<li><% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-	  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
-	<% end %></li>
-	</ul>
 </div>
 
 <img src="/images/banner.jpg">
+

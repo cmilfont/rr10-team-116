@@ -9,10 +9,6 @@
     <p><%= text_field_tag :query, @query %></p>
     <p><%= submit_tag "Buscar" %></p>
   <% end %>
-  <h2>Tags</h2>
-  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-    <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
-  <% end %>
 </div>
 
 <h1>Books</h1>
