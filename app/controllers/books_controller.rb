@@ -20,6 +20,27 @@ class BooksController < ApplicationController
     end
   end
   
+  def edit
+    @book = Book.find(params[:id])
+  end
+  
+  def show
+    @book = Book.find(params[:id])
+  end
+  
+  def update
+    @book = Book.find(params[:id])
+    respond_to do |format|
+      if @book.update_attributes(params[:book])
+        Book.deliver(@book.id)
+        flash[:notice] = 'Book saved successfully!'
+        format.html { redirect_to(@book) }
+      else
+        format.html { render :action => "new" }
+      end
+    end
+  end
+  
   def index
     @book = Book.all
 
