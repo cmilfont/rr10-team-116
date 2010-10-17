@@ -33,7 +33,6 @@
       <% if current_user %>
         <li><a href="/users/<%= current_user.id %>/edit"<%= "class='active'" if controller.controller_name == 'users' %>>Profile</a></li>
       <% end %>
-      <li><a href="#"<%= "class='active'" if controller.controller_name == 'about' %>>About</a></li>
     </ul>
     <div style="clear: both"></div>
   </div>
