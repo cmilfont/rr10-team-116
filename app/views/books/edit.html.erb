@@ -1,2 +1,6 @@
+<div id="sidebar">
+  <p><%= image_tag(@book.small_image_path, :alt => @book.title)%></p>
+</div>
+
+<h1>Edit book</h1>
 <%= render 'form' %>
-<%= render 'books' %>
