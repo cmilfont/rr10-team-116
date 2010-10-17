@@ -9,11 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20101017023606) do
-=======
-ActiveRecord::Schema.define(:version => 20101017023049) do
->>>>>>> master
+ActiveRecord::Schema.define(:version => 20101017035357) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -32,11 +28,9 @@ ActiveRecord::Schema.define(:version => 20101017023049) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.decimal  "rating_average",    :precision => 6, :scale => 2, :default => 0.0
-<<<<<<< HEAD
     t.integer  "user_id"
-=======
     t.string   "author"
->>>>>>> master
+    t.string   "index_erro"
   end
 
   create_table "pages", :force => true do |t|
