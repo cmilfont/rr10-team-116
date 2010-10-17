@@ -26,6 +26,7 @@
         <div id="login">
         <% if current_user %>
           <a href="/users"><img src="<%= current_user.profile_image_url %>" style="width: 14px; height: 14px" alt="@<%= current_user.twitter_username %>" /> @<%= current_user.twitter_username %></a>
+          &nbsp; <a href="/user_sessions/destroy">Logout</a>
         <% else %>
           <a href="javascript:show_login_window();">Login</a>
         <% end %>
