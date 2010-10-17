@@ -1,5 +1,8 @@
 class Book < ActiveRecord::Base
 
+  cattr_reader :per_page
+  @@per_page = 12
+
   acts_as_taggable
   ajaxful_rateable :stars => 5
   @queue = :file_serve

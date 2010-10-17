@@ -3,14 +3,12 @@ class BooksController < ApplicationController
   before_filter :require_user, :only => [:new, :create, :edit, :destroy, :rate,
     :update, :mybooks]
 
-
     def tag_cloud
       @tags = Book.tag_counts_on(:tags)
     end
 
     def new
       @book = Book.new
-      @books = Book.all
       respond_to do |format|
         format.html
       end
@@ -32,13 +30,11 @@ class BooksController < ApplicationController
 
     def edit
       @book = Book.find(params[:id])
-      @books = Book.all
       require_owner(@book)
     end
 
     def show
       @book = Book.find(params[:id])
-      @books = Book.all
     end
 
     def update
@@ -54,19 +50,17 @@ class BooksController < ApplicationController
         end
       end
     end
-    
+
     def tag
       tag = params[:id]
       @books = Book.tagged_with(tag)
       @tags = Book.tag_counts_on(:tags)
 
       render  :action => :index
-
-
     end
 
     def index
-      @books = Book.all
+      @books = Book.paginate :page => params[:page]
 
       @tags = Book.tag_counts_on(:tags)
 
@@ -75,7 +69,7 @@ class BooksController < ApplicationController
         format.html
         format.xml  { render :xml => @books }
       end
-      
+
     end
 
     def search_books
