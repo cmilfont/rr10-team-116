@@ -135,6 +135,13 @@ form input[type='text'] {
   border: 1px solid #C6C6C6;
   -moz-border-radius: 6px;
 }
+h1 {
+  margin: 0;
+}
+
+#text {
+  padding: 20px 0;
+}
 
 #bottom {
   padding: 20px;
