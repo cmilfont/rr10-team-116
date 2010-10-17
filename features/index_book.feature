@@ -19,7 +19,7 @@ Feature: Indexing Book
       And I fill in "Year" with "1926"
       And I fill in "Publisher" with "The Encyclopaedia Britannica"
       And I fill in "Edition" with "First Edition"
-      And I select "Bertrand Russel" from "Author"
+      And I fill in "Author" with "Bertrand Russel"
     When I press "Save"
     Then I should see "Book saved successfully!"
 
