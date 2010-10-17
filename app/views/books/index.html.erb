@@ -1,1 +1,11 @@
+<div id="sidebar">
+  <h2>What is this place?</h2>
+  <p>Here you will list all your books and covers, and find by content.</p>
+  <h2>Search my books</h2>
+  <% form_tag ("/books/search_mybooks", :method => :get) do %>
+    <p><%= text_field_tag :query, @query %></p>
+    <p><%= submit_tag "Buscar" %></p>
+  <% end %>
+</div>
+
 <%= render 'books' %>
