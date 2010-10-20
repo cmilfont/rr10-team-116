@@ -48,6 +48,7 @@ class Book < ActiveRecord::Base
     Sunspot.index book.pages
   rescue Exception => e
     book.index_erro = e.message
+    book.save
   end
 
   def large_image_path
