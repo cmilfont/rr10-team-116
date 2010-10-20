@@ -5,7 +5,7 @@ gem "mysql"
 gem "omniauth", "~>0.1.4"
 gem "authlogic", "~>2.1.6"
 
-gem 'pdf-reader', '0.8.6', :require => 'pdf/reader'
+#gem 'pdf-reader', '0.8.6', :require => 'pdf/reader'
 
 gem 'paperclip', "2.3.3"
 gem 'will_paginate', '~> 2.3.11'
@@ -20,7 +20,7 @@ gem 'uuid', "~> 2.3.1"
 gem "rmagick", "2.12.2", :require => 'RMagick'
 
 gem "ruby-debug"
-
+gem "pdf-toolkit", "0.49", :require => 'pdf/toolkit'
 
 group :development do
   gem "flog", "2.4.0"
