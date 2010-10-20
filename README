@@ -15,3 +15,4 @@ resque-web
 
 #acessa na url http://localhost:5678/overview
 
+#criar pasta public/images/covers

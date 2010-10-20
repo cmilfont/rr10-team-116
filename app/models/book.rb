@@ -39,6 +39,7 @@ class Book < ActiveRecord::Base
   	receiver = PageTextReceiver.new
     pdf = PDF::Reader.file(url, receiver)
     page_number = 0
+    book.pages = []
     receiver.content.each{|page|
       page_number += 1
       book.pages << Page.new(:content => page, :page_number => page_number)
