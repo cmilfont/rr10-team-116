@@ -16,3 +16,7 @@ resque-web
 #acessa na url http://localhost:5678/overview
 
 #criar pasta public/images/covers
+
+book = Book.last
+pdf = PDF::Toolkit.open(book.file_full_path)
+http://rubydoc.info/gems/pdf-toolkit/0.49/frames
